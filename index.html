@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script type="text/javascript">
+var myHeaders = new Headers();
+myHeaders.append("Authorization", "Bearer E3FH6T97E3MTF2GRC8B3GMHDF7HM");
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "emission_factor": "passenger_vehicle-vehicle_type_black_cab-fuel_source_na-distance_na-engine_size_na",
+  "parameters": {
+    "passengers": 4,
+    "distance": 100,
+    "distance_unit": "mi"
+  }
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("https://beta3.api.climatiq.io/estimate?passengers=4&distance=100&distance_unit=mi", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
+</script>
+</html>
