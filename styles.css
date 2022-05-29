@@ -5,7 +5,7 @@ body {
 
 h1 {
     font: Arial;
-    font-size: larger;
+    font-size: x-large;
     color: black;
     text-align: center;
 }
@@ -23,13 +23,9 @@ h1 {
     margin-bottom: 20px;
 }
 
-.input_entry {
-    font: Arial;
-    font-size: medium;   
-    outline-color: 3px #A6BFA5; 
-}
 
 input::placeholder {
+    font: arial;
     font-style: italic;
     font-size: small;
     font-weight: light;
@@ -54,8 +50,10 @@ input::placeholder {
     transform: translate(-50%, -50%);
 }
 
-.results_label {
+.result {
     text-align: center;
+    font-size: medium;
     font-style: bold;
     font: Arial;
+    color: black;
 }
