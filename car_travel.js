@@ -1,24 +1,40 @@
 // string miles_driven, string num_passengers
-function getCarbonEmmisions(num_passengers, num_dist, dist_units) {
+function get_car_carbon_emmisions(num_passengers, num_dist, dist_units) {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer E3FH6T97E3MTF2GRC8B3GMHDF7HM");
     myHeaders.append("Content-Type", "application/json");
 
+ 
+
+    // for car:
+   
     var raw = '{"emission_factor":"passenger_vehicle-vehicle_type_black_cab-fuel_source_na-distance_na-engine_size_na","parameters":{"passengers":' + num_passengers + '4,"distance":' + num_dist + ',"distance_unit":"' + dist_units +'"}}'
-
+    
     var requestOptions = {
-    method: 'POST',
-    headers: myHeaders,
-    body: raw,
-    redirect: 'follow'
-    };
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
 
-   // var ret_val;
 
-    fetch("https://beta3.api.climatiq.io/estimate?passengers=4&distance=100&distance_unit=mi", requestOptions)
+    fetch("https://beta3.api.climatiq.io/estimate", requestOptions)
     .then(response => response.text())
-    .then(result => show_carbon_emisions(result, num_passengers, num_dist, dist_units))
+    .then(result => show_car_carbon_emisions(result, num_passengers, num_dist, dist_units))
     .catch(error => console.log('error', error));
+
+    // for bus:
+
+    raw = '{"emission_factor":"passenger_vehicle-vehicle_type_bus-fuel_source_na-distance_na-engine_size_na","parameters":{"passengers":' + num_passengers + '4,"distance":' + num_dist + ',"distance_unit":"' + dist_units +'"}}'
+   
+    requestOptions.body = raw;
+
+    fetch("https://beta3.api.climatiq.io/estimate", requestOptions)
+    .then(response => response.text())
+    .then(result => show_bus_carbon_emisions(result, num_passengers, num_dist, dist_units))
+    .catch(error => console.log('error', error));
+
+
   //  return ret_val;
 }
 
@@ -51,29 +67,29 @@ function calculate(){
         return;
     }
 
-    getCarbonEmmisions(num_passengers, num_dist, dist_units);
+    get_car_carbon_emmisions(num_passengers, num_dist, dist_units);
 }
 
 // input: String result_str
 // output: dictionary
-function show_carbon_emisions(result_str, num_passengers, num_dist,dist_units){
-    // iffy fix for now
-   // alert(result_str.substring(8, result_str.indexOf(',')));
-    
+function show_car_carbon_emisions(result_str, num_passengers, num_dist, dist_units){
+
     var carbon = result_str.substring(8, result_str.indexOf(','));
-    document.getElementById("result").innerHTML = "A " + num_dist.toString() + " " + dist_units +" trip with " 
-                                                    + num_passengers.toString() + " passengers releases " +
+    document.getElementById("result_car").innerHTML = "A " + num_dist.toString() + " " + dist_units +" trip with " 
+                                                    + num_passengers.toString() + " passengers with an average car releases " +
                                                      carbon + " kilograms of carbon dioxide.";
 
     return;
+}
 
-    // make this process the proper way and put in dict
-    var dict = {};
-    var key;
-    var value;
+// input: String result_str
+// output: dictionary
+function show_bus_carbon_emisions(result_str, num_passengers, num_dist, dist_units){
 
-    while(length(result_str) > 0) {
-        
-    
-    }
+    var carbon = result_str.substring(8, result_str.indexOf(','));
+    document.getElementById("result_bus").innerHTML = "A " + num_dist.toString() + " " + dist_units +" trip with " 
+                                                    + num_passengers.toString() + " passengers with an average bus releases " +
+                                                     carbon + " kilograms of carbon dioxide.";
+
+    return;
 }
