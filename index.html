@@ -8,7 +8,7 @@
     <title>Living Green</title>
 </head>
 <body>
-    <h1>Car Emissions Calculator</h1>
+    <h1>Travel Emissions Calculator</h1>
     <p class="description">To discover how many kilograms of carbon a trip produces, input the trip details below.</p>
     <div class="form">
         <div class="vertical-center">
@@ -21,18 +21,25 @@
               <option value="mi">Miles</option>
               <option value="m">Meters</option>
             </select><br>
-            <button type="button" onclick="calculate()">Calculate</button><br>
+            <button type="button" onclick="calculate()">Calculate</button>
+            <button type="button" onclick="reset()">Reset</button><br>
         </div>
     </div>
-    <div class="result">
-        <p id="result_car"></p> 
-    </div>
-    <div class="result">
-        <p id="result_bus"></p> 
-    </div>
-    <div class="result">
-        <p id="result_bike"></p> 
-    </div>
+    <br>
+    <br>
+    <div class="form">
+        <div class="result">
+            <p id="result_car"></p> 
+        </div>
+        <div class="result">
+            <p id="result_bus"></p> 
+        </div>
+        <div class="result">
+            <p id="result_bike"></p> 
+        </div>
+    </div> <br>
+    <img src="logoTravelGreen.png" alt="Travel Green Logo" width="250" height="250">
+
 </body>
 <script src="car_travel.js"> </script>
 

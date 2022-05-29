@@ -98,7 +98,12 @@ function show_bus_carbon_emisions(result_str, num_passengers, num_dist, dist_uni
 function show_bike_carbon_emisions(num_passengers, num_dist, dist_units){
 
     document.getElementById("result_bike").innerHTML = "A " + num_dist.toString() + " " + dist_units +" trip with " 
-                                                    + num_passengers.toString() + " passengers with an average bus releases <b>0.00</b> kilograms of carbon dioxide.";
+                                                    + num_passengers.toString() + " passengers with an average bike releases <b>0.00</b> kilograms of carbon dioxide.";
 
     return;
+}
+
+function reset() {
+    document.getElementById("input_passengers").value = "";
+    document.getElementById("input_dist").value = "";
 }
