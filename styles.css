@@ -1,10 +1,11 @@
 body {
     background-color: #A6BFA5;
+    text-align: center;
 }
 
 h1 {
     font: Arial;
-    font-size: large;
+    font-size: larger;
     color: black;
     text-align: center;
 }
@@ -19,13 +20,19 @@ h1 {
 .entry_label, .input_entry {
     font: Arial;
     font-size: medium;
-    
-    
+    margin-bottom: 20px;
 }
 
 .input_entry {
     font: Arial;
-    font-size: medium;
+    font-size: medium;   
+    outline-color: 3px #A6BFA5; 
+}
+
+input::placeholder {
+    font-style: italic;
+    font-size: small;
+    font-weight: light;
 }
 
 .form {
@@ -34,36 +41,15 @@ h1 {
     height: 200px;
     position: relative;
     border: 3px #A6BFA5;
+    width: 60%;
+    display: inline-block;
 }
 
 .vertical-center {
     margin: 0;
     position: absolute;
     top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
-
-
-
-/*.button::before, .button::after {
-    content: "";
-    display: block;
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-}
-
-.button::after {
-    background-color: #292929;
-}
-
-.button::before {
-    background-image: linear-gradient(to bottom right, #aeffb9 0%, #a091ff 100%);
-    transition: transform 200ms;
-}
-
-.button:hover::before, .button:focus::before {
-    transform: scale(1.1);
-}
-*/
