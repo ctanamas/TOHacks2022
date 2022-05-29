@@ -17,9 +17,7 @@ function getCarbonEmmisions(num_passengers, num_dist, dist_units) {
 
     fetch("https://beta3.api.climatiq.io/estimate?passengers=4&distance=100&distance_unit=mi", requestOptions)
     .then(response => response.text())
-   // .then(result => console.log(result))
-  //  .then(result => ret_val = result)
-    .then(result => show_carbon_emisions(result))
+    .then(result => show_carbon_emisions(result, num_passengers, num_dist, dist_units))
     .catch(error => console.log('error', error));
   //  return ret_val;
 }
@@ -58,10 +56,15 @@ function calculate(){
 
 // input: String result_str
 // output: dictionary
-function show_carbon_emisions(result_str){
+function show_carbon_emisions(result_str, num_passengers, num_dist,dist_units){
     // iffy fix for now
-    alert(result_str.substring(8, result_str.indexOf(',')));
+   // alert(result_str.substring(8, result_str.indexOf(',')));
     
+    var carbon = result_str.substring(8, result_str.indexOf(','));
+    document.getElementById("result").innerHTML = "A " + num_dist.toString() + " " + dist_units +" trip with " 
+                                                    + num_passengers.toString() + " passengers releases " +
+                                                     carbon + " kilograms of carbon dioxide.";
+
     return;
 
     // make this process the proper way and put in dict
