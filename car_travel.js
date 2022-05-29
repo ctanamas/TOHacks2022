@@ -34,8 +34,9 @@ function get_car_carbon_emmisions(num_passengers, num_dist, dist_units) {
     .then(result => show_bus_carbon_emisions(result, num_passengers, num_dist, dist_units))
     .catch(error => console.log('error', error));
 
+    // bike
+    show_bike_carbon_emisions(num_passengers, num_dist, dist_units);
 
-  //  return ret_val;
 }
 
 
@@ -74,10 +75,10 @@ function calculate(){
 // output: dictionary
 function show_car_carbon_emisions(result_str, num_passengers, num_dist, dist_units){
 
-    var carbon = result_str.substring(8, result_str.indexOf(','));
+    var carbon = result_str.substring(8, result_str.indexOf('.') + 3);
     document.getElementById("result_car").innerHTML = "A " + num_dist.toString() + " " + dist_units +" trip with " 
-                                                    + num_passengers.toString() + " passengers with an average car releases " +
-                                                     carbon + " kilograms of carbon dioxide.";
+                                                    + num_passengers.toString() + " passengers with an average car releases <b>" +
+                                                     carbon + " </b>kilograms of carbon dioxide.";
 
     return;
 }
@@ -86,10 +87,18 @@ function show_car_carbon_emisions(result_str, num_passengers, num_dist, dist_uni
 // output: dictionary
 function show_bus_carbon_emisions(result_str, num_passengers, num_dist, dist_units){
 
-    var carbon = result_str.substring(8, result_str.indexOf(','));
+    var carbon = result_str.substring(8, result_str.indexOf('.') + 3);
     document.getElementById("result_bus").innerHTML = "A " + num_dist.toString() + " " + dist_units +" trip with " 
-                                                    + num_passengers.toString() + " passengers with an average bus releases " +
-                                                     carbon + " kilograms of carbon dioxide.";
+                                                    + num_passengers.toString() + " passengers with an average bus releases<b> " +
+                                                     carbon + "</b> kilograms of carbon dioxide.";
+
+    return;
+}
+
+function show_bike_carbon_emisions(num_passengers, num_dist, dist_units){
+
+    document.getElementById("result_bike").innerHTML = "A " + num_dist.toString() + " " + dist_units +" trip with " 
+                                                    + num_passengers.toString() + " passengers with an average bus releases <b>0.00</b> kilograms of carbon dioxide.";
 
     return;
 }
