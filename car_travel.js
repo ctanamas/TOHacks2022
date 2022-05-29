@@ -27,7 +27,7 @@ function getCarbonEmmisions(num_passengers, num_dist, dist_units) {
 
 function get_passengers() {
     var inputValue = document.getElementById('input_passengers').value; 
-    if (isNaN(inputValue) || parseInt(inputValue) <= 0) {
+    if (inputValue == "" || isNaN(inputValue) || parseInt(inputValue) <= 0) {
         alert('Please enter a valid number of passengers.');
         return -1;
     } else {
@@ -37,7 +37,7 @@ function get_passengers() {
 
 function get_dist() {
     var inputValue = document.getElementById('input_dist').value; 
-    if (isNaN(inputValue) || parseInt(inputValue) <= 0) {
+    if (inputValue == "" || isNaN(inputValue) || parseInt(inputValue) <= 0) {
         alert('Please enter a valid distance travelled.');
         return -1;
     } else {
