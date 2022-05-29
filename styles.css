@@ -1,0 +1,69 @@
+body {
+    background-color: #A6BFA5;
+}
+
+h1 {
+    font: Arial;
+    font-size: large;
+    color: black;
+    text-align: center;
+}
+
+.description {
+    font: Arial;
+    font-size: medium;
+    color: black;
+    text-align: center;
+}
+
+.entry_label, .input_entry {
+    font: Arial;
+    font-size: medium;
+    
+    
+}
+
+.input_entry {
+    font: Arial;
+    font-size: medium;
+}
+
+.form {
+    border: 3px #A6BFA5;
+    background-color: white;
+    height: 200px;
+    position: relative;
+    border: 3px #A6BFA5;
+}
+
+.vertical-center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
+
+/*.button::before, .button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.button::after {
+    background-color: #292929;
+}
+
+.button::before {
+    background-image: linear-gradient(to bottom right, #aeffb9 0%, #a091ff 100%);
+    transition: transform 200ms;
+}
+
+.button:hover::before, .button:focus::before {
+    transform: scale(1.1);
+}
+*/

@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <title>Living Green</title>
 </head>
 <body>
-    <input type="text" id="input_passengers"/>
-    <input type="text" id="input_dist"/>
-    <button type="button" onclick="calculate()">Calculate</button>
-  
+    <h1>Car Emissions Calculator</h1>
+    <p class="description">To discover how many tonnes of carbon a trip produces, input the trip details below.</p>
+    <div class="form">
+        <div class="vertical-center">
+            <label for="numpassengers" class="entry_label">Number of Passengers:</label>
+            <input type="text" id="input_passengers" name="input_passengers" placeholder="1" class="input_entry"/><br>
+            <label for="distance" class="entry_label">Distance (km):</label>
+            <input type="text" id="input_dist" name="input_dist" placeholder="100" class="input_entry"/><br>
+            <button type="button" onclick="calculate()" >Calculate</button><br>
+        </div>
+    </div>
 </body>
 <script src="car_travel.js"> </script>
 
