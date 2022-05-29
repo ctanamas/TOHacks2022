@@ -1,10 +1,10 @@
 // string miles_driven, string num_passengers
-function getCarbonEmmisions(num_passengers, num_dist) {
+function getCarbonEmmisions(num_passengers, num_dist, dist_units) {
     var myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer E3FH6T97E3MTF2GRC8B3GMHDF7HM");
     myHeaders.append("Content-Type", "application/json");
 
-    var raw = '{"emission_factor":"passenger_vehicle-vehicle_type_black_cab-fuel_source_na-distance_na-engine_size_na","parameters":{"passengers":' + num_passengers + '4,"distance":' + num_dist + ',"distance_unit":"km"}}'
+    var raw = '{"emission_factor":"passenger_vehicle-vehicle_type_black_cab-fuel_source_na-distance_na-engine_size_na","parameters":{"passengers":' + num_passengers + '4,"distance":' + num_dist + ',"distance_unit":"' + dist_units +'"}}'
 
     var requestOptions = {
     method: 'POST',
@@ -48,12 +48,12 @@ function get_dist() {
 function calculate(){
     var num_passengers = get_passengers();
     var num_dist = get_dist();
-
+    var dist_units = document.getElementById('input_dist_units').value;
     if (num_dist < 0 || num_passengers < 0) {
         return;
     }
 
-    getCarbonEmmisions(num_passengers, num_dist);
+    getCarbonEmmisions(num_passengers, num_dist, dist_units);
 }
 
 // input: String result_str
